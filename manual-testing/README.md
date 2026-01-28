@@ -12,3 +12,6 @@ functionality, usability, and reliability of web applications.
 ### Objective:
 Ensure application quality by identifying defects early and verifying
 that features meet expected behavior.
+
+
+Tools Used: Excel
