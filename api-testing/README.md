@@ -1,13 +1,9 @@
-## API Testing Project
+## API Testing
 
-Tools: Postman  
-Scenarios:
-- Login API
-- Get user list
-- Create order
+API testing performed using Postman.
 
 Includes:
-- Test cases
-- Postman collection
-- Screenshots
-
+- API test cases
+- Postman collections
+- Positive and negative scenarios
+- Basic assertions
