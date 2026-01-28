@@ -1,7 +1,8 @@
 ## Performance Testing
 
-This folder contains performance testing artifacts created using Apache JMeter
-to evaluate system behavior under different load conditions.
+Performance testing conducted on demo website using Apache JMeter.  
+Included CSV summary file `demo_site_performance_summary.csv` showing Avg, Max, Throughput, Error %, and other metrics.
+
 
 ### Includes:
 - JMeter test plans (.jmx)
