@@ -1,9 +1,14 @@
 ## Manual Testing
 
-This folder contains manual test cases and bug reports created for web applications.
+This folder contains manual testing artifacts created to validate the
+functionality, usability, and reliability of web applications.
 
-Includes:
-- Functional test cases
-- Regression scenarios
-- Bug reports with severity and priority
+### Includes:
+- Functional and regression test cases
+- Test scenarios based on business requirements
+- Detailed bug reports with severity and priority
+- Screenshots and evidence where applicable
 
+### Objective:
+Ensure application quality by identifying defects early and verifying
+that features meet expected behavior.
