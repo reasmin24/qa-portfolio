@@ -1,9 +1,14 @@
 ## Performance Testing
 
-Performance testing conducted using Apache JMeter.
+This folder contains performance testing artifacts created using Apache JMeter
+to evaluate system behavior under different load conditions.
 
-Includes:
-- Load and stress test plans
-- JMeter (.jmx) files
-- Result analysis and screenshots
+### Includes:
+- JMeter test plans (.jmx)
+- Load and stress testing scenarios
+- Test result summaries and analysis
+- Performance bottleneck observations
 
+### Objective:
+Measure application performance, identify scalability issues, and ensure
+system stability under expected and peak load.
