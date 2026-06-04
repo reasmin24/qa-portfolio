@@ -4,7 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rukhshana Easmin — Senior QA Engineer</title>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+<!-- Inter & Space Grotesk/Cabinet Grotesk Clean Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<!-- Font Awesome 6 for Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
   :root {
     --bg: #0b0f19;
@@ -25,7 +28,7 @@
   body {
     background: var(--bg);
     color: var(--text);
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 15px;
     line-height: 1.7;
     overflow-x: hidden;
@@ -58,7 +61,7 @@
   }
 
   .nav-logo {
-    font-family: 'Syne', sans-serif; font-weight: 800; font-size: 22px;
+    font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 22px;
     background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     letter-spacing: -0.5px; text-decoration: none;
     position: relative; z-index: 1001;
@@ -109,7 +112,7 @@
   }
 
   .hero-name {
-    font-family: 'Syne', sans-serif; font-weight: 800; font-size: clamp(48px, 5.5vw, 80px);
+    font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(48px, 5.5vw, 80px);
     line-height: 1.05; letter-spacing: -2px; margin-bottom: 20px; color: var(--text);
   }
   .hero-name span { display: block; }
@@ -118,8 +121,9 @@
   }
 
   .hero-title {
-    font-family: 'Playfair Display', serif; font-style: italic; font-size: 26px;
-    color: var(--text); margin-bottom: 24px; font-weight: 600;
+    font-size: 24px;
+    color: var(--accent); margin-bottom: 24px; font-weight: 600;
+    letter-spacing: -0.5px;
   }
 
   .hero-desc { color: var(--muted); font-size: 16px; max-width: 540px; margin-bottom: 40px; line-height: 1.8; }
@@ -170,7 +174,8 @@
   .qa-metrics { display: flex; flex-direction: column; gap: 16px; }
   .metric-row { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
   .metric-row:last-child { border: none; padding: 0; }
-  .metric-label { font-size: 13px; color: var(--muted); }
+  .metric-label { font-size: 13px; color: var(--muted); display: flex; align-items: center; gap: 8px; }
+  .metric-label i { color: var(--accent); width: 16px; }
   .metric-value { font-size: 14px; font-weight: 600; color: var(--text); }
 
   /* STATS BAR */
@@ -182,13 +187,13 @@
   .stat-item { text-align: center; border-right: 1px solid var(--border); }
   .stat-item:last-child { border: none; }
   .stat-num {
-    font-family: 'Syne', sans-serif; font-size: 40px; font-weight: 800;
+    font-family: 'Space Grotesk', sans-serif; font-size: 40px; font-weight: 700;
     background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     line-height: 1; margin-bottom: 8px;
   }
   .stat-label { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 500; }
 
-  /* SECTIONS MODIFIED: NO NUMBERS + ANIMATED UNDERLINE */
+  /* SECTIONS */
   section { padding: 120px 80px; position: relative; z-index: 20; }
   
   .section-header { display: flex; align-items: center; gap: 24px; margin-bottom: 60px; }
@@ -200,14 +205,13 @@
   }
   
   .section-title { 
-    font-family: 'Syne', sans-serif; 
+    font-family: 'Space Grotesk', sans-serif; 
     font-size: 38px; 
-    font-weight: 800; 
+    font-weight: 700; 
     letter-spacing: -1px; 
     color: var(--text); 
   }
   
-  /* The Animated Underline Blueprint */
   .section-title-container::after {
     content: '';
     position: absolute;
@@ -221,7 +225,6 @@
     transition: width 1s cubic-bezier(0.16, 1, 0.3, 1);
   }
   
-  /* Trigger the underline animation smoothly when visible */
   .fade-in.visible .section-title-container::after {
     width: 100%;
   }
@@ -238,20 +241,20 @@
     border: 1px solid rgba(255,123,176,0.15); padding: 28px; border-radius: 12px; margin-top: 36px;
   }
   .quote-box p {
-    color: var(--text); font-family: 'Playfair Display', serif; font-style: italic;
-    font-size: 18px; margin: 0; line-height: 1.6;
+    color: var(--text);
+    font-size: 16px; margin: 0; line-height: 1.6; font-weight: 500;
   }
 
   .strengths-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
   .strength-card {
     background: var(--surface); border: 1px solid var(--border); padding: 24px;
-    border-radius: 12px; transition: all 0.3s;
+    border-radius: 12px; transition: all 0.3s; display: flex; flex-direction: column; gap: 12px;
   }
   .strength-card:hover {
     border-color: rgba(255,123,176,0.3); transform: translateY(-2px);
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
   }
-  .strength-icon { font-size: 24px; margin-bottom: 12px; }
+  .strength-icon { font-size: 22px; color: var(--accent); }
   .strength-name { font-size: 14px; font-weight: 600; color: var(--text); }
 
   /* EXPERIENCE */
@@ -264,7 +267,7 @@
     display: flex; justify-content: space-between; align-items: flex-start;
     background: linear-gradient(to bottom, rgba(255,255,255,0.01), transparent);
   }
-  .exp-role { font-family: 'Syne', sans-serif; font-size: 26px; font-weight: 800; margin-bottom: 6px; color: var(--text); }
+  .exp-role { font-family: 'Space Grotesk', sans-serif; font-size: 26px; font-weight: 700; margin-bottom: 6px; color: var(--text); }
   .exp-company { color: var(--accent); font-size: 15px; font-weight: 600; }
   .exp-duration {
     background: rgba(255, 123, 176, 0.1); border: 1px solid rgba(255, 123, 176, 0.2);
@@ -274,7 +277,7 @@
   .exp-list-title { font-size: 12px; font-weight: 700; color: var(--text); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 20px; }
   .exp-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
   .exp-list li { display: flex; align-items: flex-start; gap: 12px; color: var(--muted); font-size: 14px; line-height: 1.6; }
-  .exp-list li::before { content: '✦'; color: var(--accent); font-size: 10px; margin-top: 4px; flex-shrink: 0; }
+  .exp-list li i { color: var(--accent); font-size: 12px; margin-top: 5px; flex-shrink: 0; }
 
   .domains-wrap { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 40px; }
   .domain-chip {
@@ -282,6 +285,7 @@
     border: 1px solid var(--border); padding: 12px 20px; border-radius: 100px;
     font-size: 14px; font-weight: 500; color: var(--text); transition: all 0.3s;
   }
+  .domain-chip i { color: var(--accent); }
   .domain-chip:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
 
   /* SKILLS */
@@ -289,8 +293,8 @@
   .skill-group { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 32px; transition: all 0.3s; }
   .skill-group:hover { border-color: rgba(255,123,176,0.2); transform: translateY(-4px); }
   .skill-group-header { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
-  .skill-group-icon { font-size: 22px; }
-  .skill-group-title { font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 700; color: var(--text); }
+  .skill-group-icon { font-size: 20px; color: var(--accent); }
+  .skill-group-title { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: var(--text); }
   .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
   .skill-tag {
     background: rgba(255,255,255,0.03); border: 1px solid var(--border); color: var(--muted);
@@ -309,8 +313,8 @@
     content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--accent-gradient);
   }
   .learn-card:hover { transform: translateY(-4px); border-color: rgba(168,85,247,0.2); }
-  .learn-icon { font-size: 32px; margin-bottom: 20px; }
-  .learn-title { font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 700; color: var(--text); margin-bottom: 10px; }
+  .learn-icon { font-size: 28px; margin-bottom: 20px; color: var(--accent); }
+  .learn-title { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700; color: var(--text); margin-bottom: 10px; }
   .learn-desc { font-size: 14px; color: var(--muted); line-height: 1.6; margin-bottom: 20px; }
   .learn-badge {
     display: inline-block; background: rgba(168,85,247,0.1); border: 1px solid rgba(168,85,247,0.2);
@@ -319,8 +323,8 @@
 
   /* CONTACT */
   .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-  .contact-tagline { font-family: 'Syne', sans-serif; font-size: 52px; font-weight: 800; letter-spacing: -2px; line-height: 1.1; margin-bottom: 24px; color: var(--text); }
-  .contact-tagline em { font-family: 'Playfair Display', serif; font-style: italic; color: var(--accent); font-weight: 500; }
+  .contact-tagline { font-family: 'Space Grotesk', sans-serif; font-size: 52px; font-weight: 700; letter-spacing: -2px; line-height: 1.1; margin-bottom: 24px; color: var(--text); }
+  .contact-tagline em { color: var(--accent); font-style: normal; }
   .contact-desc { color: var(--muted); font-size: 16px; margin-bottom: 40px; max-width: 480px; }
   
   .contact-links { display: flex; flex-direction: column; gap: 16px; }
@@ -332,7 +336,7 @@
   .contact-link:hover { border-color: var(--accent); background: rgba(255,123,176,0.04); transform: translateX(8px); }
   .contact-link-icon {
     width: 44px; height: 44px; background: rgba(255,123,176,0.08); border-radius: 8px;
-    display: flex; align-items: center; justify-content: center; font-size: 20px; color: var(--accent);
+    display: flex; align-items: center; justify-content: center; font-size: 18px; color: var(--accent);
   }
   .contact-link-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 4px; }
   .contact-link-value { font-size: 15px; font-weight: 600; color: var(--text); }
@@ -444,7 +448,7 @@
       Detail-oriented QA professional with over 2+ years of comprehensive expertise in structured manual testing. Specialized in ensuring cross-platform stability across intricate ecosystem environments. Currently engineering automated test frameworks with Selenium and Playwright.
     </p>
     <div class="hero-actions">
-      <a href="mailto:reasmin24@gmail.com" class="btn btn-primary">Send Direct Email</a>
+      <a href="mailto:reasmin24@gmail.com" class="btn btn-primary"><i class="fa-solid fa-envelope"></i> Send Direct Email</a>
       <a href="#experience" class="btn btn-secondary">Explore Experience</a>
     </div>
   </div>
@@ -461,19 +465,19 @@
       </div>
       <div class="qa-metrics">
         <div class="metric-row">
-          <span class="metric-label">Based in</span>
+          <span class="metric-label"><i class="fa-solid fa-location-dot"></i> Based in</span>
           <span class="metric-value">Bangladesh 🇧🇩</span>
         </div>
         <div class="metric-row">
-          <span class="metric-label">Previous Company</span>
+          <span class="metric-label"><i class="fa-solid fa-building"></i> Previous Company</span>
           <span class="metric-value" style="color: var(--accent);">W3ENGINEERS Ltd</span>
         </div>
         <div class="metric-row">
-          <span class="metric-label">Timezone Sync</span>
+          <span class="metric-label"><i class="fa-solid fa-clock"></i> Timezone Sync</span>
           <span class="metric-value">EST Overlap Available</span>
         </div>
         <div class="metric-row">
-          <span class="metric-label">Core Strategy</span>
+          <span class="metric-label"><i class="fa-solid fa-gears"></i> Core Strategy</span>
           <span class="metric-value">Agile / Black-Box</span>
         </div>
       </div>
@@ -510,27 +514,27 @@
       <div style="margin-bottom: 24px; font-size: 12px; font-weight: 700; color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase;">Core Competencies</div>
       <div class="strengths-grid">
         <div class="strength-card">
-          <div class="strength-icon">🔍</div>
+          <div class="strength-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
           <div class="strength-name">Micro-Detail Execution</div>
         </div>
         <div class="strength-card">
-          <div class="strength-icon">🧠</div>
+          <div class="strength-icon"><i class="fa-solid fa-sitemap"></i></div>
           <div class="strength-name">Architectural Analysis</div>
         </div>
         <div class="strength-card">
-          <div class="strength-icon">⚡</div>
+          <div class="strength-icon"><i class="fa-solid fa-bolt"></i></div>
           <div class="strength-name">Agile Adaptation</div>
         </div>
         <div class="strength-card">
-          <div class="strength-icon">💬</div>
+          <div class="strength-icon"><i class="fa-solid fa-comments"></i></div>
           <div class="strength-name">Cross-Team Sync</div>
         </div>
         <div class="strength-card">
-          <div class="strength-icon">🧩</div>
+          <div class="strength-icon"><i class="fa-solid fa-puzzle-piece"></i></div>
           <div class="strength-name">Root-Cause Diagnostics</div>
         </div>
         <div class="strength-card">
-          <div class="strength-icon">📋</div>
+          <div class="strength-icon"><i class="fa-solid fa-file-invoice"></i></div>
           <div class="strength-name">Technical Documentation</div>
         </div>
       </div>
@@ -558,19 +562,19 @@
       <div>
         <div class="exp-list-title">Core Responsibilities</div>
         <ul class="exp-list">
-          <li>Headed end-to-end manual testing operations across highly custom enterprise web environments.</li>
-          <li>Constructed, cataloged, and managed scalable testing matrices, bug indices, and scenario models.</li>
-          <li>Identified, isolated, and documented high-severity regressions with deterministic replication logic.</li>
-          <li>Audited interface compliance and pixel-perfect UX integrity against strict design specifications.</li>
+          <li><li><i class="fa-solid fa-circle-check"></i> Headed end-to-end manual testing operations across highly custom enterprise web environments.</li>
+          <li><li><i class="fa-solid fa-circle-check"></i> Constructed, cataloged, and managed scalable testing matrices, bug indices, and scenario models.</li>
+          <li><li><i class="fa-solid fa-circle-check"></i> Identified, isolated, and documented high-severity regressions with deterministic replication logic.</li>
+          <li><li><i class="fa-solid fa-circle-check"></i> Audited interface compliance and pixel-perfect UX integrity against strict design specifications.</li>
         </ul>
       </div>
       <div>
         <div class="exp-list-title">Execution & Impact</div>
         <ul class="exp-list">
-          <li>Systematically executed functional, non-functional, regression, smoke, and exploratory test tracks.</li>
-          <li>Maintained absolute alignment with internal software development pipelines to preempt system regressions.</li>
-          <li>Conducted predictive user-story analysis and SRS requirement review during early pre-build stages.</li>
-          <li>Enforced documentation updates for recurring testing baselines to ensure rapid production shipments.</li>
+          <li><li><i class="fa-solid fa-circle-check"></i> Systematically executed functional, non-functional, regression, smoke, and exploratory test tracks.</li>
+          <li><li><i class="fa-solid fa-circle-check"></i> Maintained absolute alignment with internal software development pipelines to preempt system regressions.</li>
+          <li><li><i class="fa-solid fa-circle-check"></i> Conducted predictive user-story analysis and SRS requirement review during early pre-build stages.</li>
+          <li><li><i class="fa-solid fa-circle-check"></i> Enforced documentation updates for recurring testing baselines to ensure rapid production shipments.</li>
         </ul>
       </div>
     </div>
@@ -578,11 +582,11 @@
 
   <div style="margin-top: 60px;" class="fade-in">
     <div class="domains-wrap">
-      <div class="domain-chip">🛒 E-Commerce Ecosystems</div>
-      <div class="domain-chip">📦 Warehouse Logistics Management</div>
-      <div class="domain-chip">👥 Enterprise HRMS Modules</div>
-      <div class="domain-chip">🔗 Supply Chain Integration Systems</div>
-      <div class="domain-chip">🏢 Smart Office Environments</div>
+      <div class="domain-chip"><i class="fa-solid fa-cart-shopping"></i> E-Commerce Ecosystems</div>
+      <div class="domain-chip"><i class="fa-solid fa-boxes-stacked"></i> Warehouse Logistics Management</div>
+      <div class="domain-chip"><i class="fa-solid fa-users"></i> Enterprise HRMS Modules</div>
+      <div class="domain-chip"><i class="fa-solid fa-link"></i> Supply Chain Integration Systems</div>
+      <div class="domain-chip"><i class="fa-solid fa-building-user"></i> Smart Office Environments</div>
     </div>
   </div>
 </section>
@@ -598,7 +602,7 @@
   <div class="skills-grid">
     <div class="skill-group fade-in">
       <div class="skill-group-header">
-        <span class="skill-group-icon">🧪</span>
+        <span class="skill-group-icon"><i class="fa-solid fa-flask"></i></span>
         <span class="skill-group-title">Testing Architecture</span>
       </div>
       <div class="skill-tags">
@@ -616,7 +620,7 @@
 
     <div class="skill-group fade-in">
       <div class="skill-group-header">
-        <span class="skill-group-icon">🛠️</span>
+        <span class="skill-group-icon"><i class="fa-solid fa-screwdriver-wrench"></i></span>
         <span class="skill-group-title">Utilities & Platforms</span>
       </div>
       <div class="skill-tags">
@@ -631,7 +635,7 @@
 
     <div class="skill-group fade-in">
       <div class="skill-group-header">
-        <span class="skill-group-icon">💡</span>
+        <span class="skill-group-icon"><i class="fa-solid fa-code"></i></span>
         <span class="skill-group-title">Engineering Core</span>
       </div>
       <div class="skill-tags">
@@ -647,7 +651,7 @@
 
     <div class="skill-group fade-in">
       <div class="skill-group-header">
-        <span class="skill-group-icon">🤖</span>
+        <span class="skill-group-icon"><i class="fa-solid fa-robot"></i></span>
         <span class="skill-group-title">Automation Stack (Scaling)</span>
       </div>
       <div class="skill-tags">
@@ -662,7 +666,7 @@
 
     <div class="skill-group fade-in">
       <div class="skill-group-header">
-        <span class="skill-group-icon">🔄</span>
+        <span class="skill-group-icon"><i class="fa-solid fa-rotate"></i></span>
         <span class="skill-group-title">Methodology</span>
       </div>
       <div class="skill-tags">
@@ -675,7 +679,7 @@
 
     <div class="skill-group fade-in">
       <div class="skill-group-header">
-        <span class="skill-group-icon">🎓</span>
+        <span class="skill-group-icon"><i class="fa-solid fa-graduation-cap"></i></span>
         <span class="skill-group-title">Academic Background</span>
       </div>
       <div style="margin-top: 4px;">
@@ -696,42 +700,42 @@
 
   <div class="learning-grid">
     <div class="learn-card fade-in">
-      <div class="learn-icon">🤖</div>
+      <div class="learn-icon"><i class="fa-solid fa-robot"></i></div>
       <div class="learn-title">Full Automation Architecture</div>
       <div class="learn-desc">Engineering robust browser-level automated matrices with Selenium and Playwright via optimized Page Object Design.</div>
       <div class="learn-badge">Active Engine</div>
     </div>
 
     <div class="learn-card fade-in">
-      <div class="learn-icon">📱</div>
+      <div class="learn-icon"><i class="fa-solid fa-mobile-button"></i></div>
       <div class="learn-title">Mobile Testing Native Matrix</div>
       <div class="learn-desc">Deep diving into Appium implementation logic for automated hybrid/native execution across Android and iOS.</div>
       <div class="learn-badge">Deep Trait</div>
     </div>
 
     <div class="learn-card fade-in">
-      <div class="learn-icon">🔗</div>
+      <div class="learn-icon"><i class="fa-solid fa-circle-nodes"></i></div>
       <div class="learn-title">Advanced API Automation</div>
       <div class="learn-desc">Constructing end-to-end endpoint scripting suites and runner collections inside the Postman workspace.</div>
       <div class="learn-badge">In Practice</div>
     </div>
 
     <div class="learn-card fade-in">
-      <div class="learn-icon">⚙️</div>
+      <div class="learn-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
       <div class="learn-title">CI/CD Continuous Engineering</div>
       <div class="learn-desc">Structuring continuous validation pipelines with Jenkins server triggers to automate regression deployments.</div>
       <div class="learn-badge">Theoretical Track</div>
     </div>
 
     <div class="learn-card fade-in">
-      <div class="learn-icon">🏗️</div>
+      <div class="learn-icon"><i class="fa-solid fa-cubes"></i></div>
       <div class="learn-title">Framework Design Paradigms</div>
       <div class="learn-desc">Analyzing programmatic enterprise architecture blueprints including Page Object Model (POM) structures.</div>
       <div class="learn-badge">Structural Build</div>
     </div>
 
     <div class="learn-card fade-in">
-      <div class="learn-icon">🔧</div>
+      <div class="learn-icon"><i class="fa-solid fa-wrench"></i></div>
       <div class="learn-title">Dependency Tools Management</div>
       <div class="learn-desc">Integrating build lifecycle parameters using Maven and Gradle tool architectures for cleaner framework testing.</div>
       <div class="learn-badge">Exploring</div>
@@ -753,19 +757,19 @@
       <p class="contact-desc">
         I am currently looking for remote QA roles aligned with US/Europe time blocks. Whether you are aiming to stabilize an active platform or expand a core automation initiative, feel free to drop a message.
       </p>
-      <a href="mailto:reasmin24@gmail.com" class="btn btn-primary">✉ Send Direct Email</a>
+      <a href="mailto:reasmin24@gmail.com" class="btn btn-primary"><i class="fa-solid fa-envelope"></i> Send Direct Email</a>
     </div>
 
     <div class="contact-links fade-in">
       <a href="mailto:reasmin24@gmail.com" class="contact-link">
-        <div class="contact-link-icon">✉️</div>
+        <div class="contact-link-icon"><i class="fa-solid fa-envelope"></i></div>
         <div>
           <div class="contact-link-label">Email Node</div>
           <div class="contact-link-value">reasmin24@gmail.com</div>
         </div>
       </a>
       <a href="https://www.linkedin.com/in/rukhshana-yeasmin-4a5042b2" target="_blank" class="contact-link">
-        <div class="contact-link-icon">💼</div>
+        <div class="contact-link-icon"><i class="fa-brands fa-linkedin-in"></i></div>
         <div>
           <div class="contact-link-label">LinkedIn Network</div>
           <div class="contact-link-value">rukhshana-yeasmin</div>
