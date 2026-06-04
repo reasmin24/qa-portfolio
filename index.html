@@ -33,7 +33,111 @@
     line-height: 1.7;
     overflow-x: hidden;
   }
+/* ATTRACTIVE LOGO DESIGN WITH SHINING & PULSE EFFECT */
+.nav-logo-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  position: relative;
+  z-index: 1001;
+}
 
+/* ZOOM IN-OUT (PULSE) + GLOW EFFECT FOR THE ICON */
+.logo-icon {
+  background: rgba(255, 123, 176, 0.1);
+  border: 1px solid rgba(255, 123, 176, 0.4);
+  color: var(--accent);
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 800;
+  font-size: 15px;
+  position: relative;
+  overflow: hidden; /* শাইনিং লাইট বাইরে যেন না যায় */
+  
+  /* অ্যানিমেশন যোগ করা হলো: ২ সেকেন্ড পর পর জুম ইন-আউট ও গ্লো হবে */
+  animation: logoPulse 2.5s infinite ease-in-out;
+}
+
+/* LIGHT SHINING EFFECT (একটি সাদা আলোর রেখা বাম থেকে ডানে যাবে) */
+.logo-icon::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 30%;
+  height: 200%;
+  background: linear-gradient(
+    to right, 
+    transparent, 
+    rgba(255, 255, 255, 0.6) 50%, 
+    transparent
+  );
+  transform: rotate(25deg);
+  /* ৩ সেকেন্ড পর পর আলোটা শাইন করবে */
+  animation: lightShine 3s infinite ease-in-out;
+}
+
+.nav-logo {
+  font-family: 'Space Grotesk', sans-serif; 
+  font-weight: 800; 
+  font-size: 22px;
+  background: linear-gradient(90deg, #ff7bb0, #a855f7, #ff7bb0);
+  background-size: 200% auto;
+  -webkit-background-clip: text; 
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.5px;
+  transition: all 0.3s ease;
+}
+
+/* মাউস হভার করলে ইফেক্ট আরও তীব্র হবে */
+.nav-logo-wrapper:hover .logo-icon {
+  border-color: #a855f7;
+  box-shadow: 0 0 25px rgba(168, 85, 247, 0.6);
+  animation-play-state: paused; /* হভার করলে জুম থমকে যাবে কিন্তু গ্লো থাকবে */
+  transform: scale(1.1);
+}
+
+.nav-logo-wrapper:hover .nav-logo {
+  background-position: right center;
+}
+
+/* --- ANIMATION KEYFRAMES --- */
+
+/* ১. জুম ইন-আউট এবং পালসিং গ্লো অ্যানিমেশন */
+@keyframes logoPulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 10px rgba(255, 123, 176, 0.2);
+  }
+  50% {
+    transform: scale(1.08); /* হালকা জুম ইন */
+    box-shadow: 0 0 20px rgba(255, 123, 176, 0.5), 0 0 30px rgba(168, 85, 247, 0.3); /* গ্লো বেড়ে যাবে */
+    border-color: rgba(168, 85, 247, 0.6);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 10px rgba(255, 123, 176, 0.2);
+  }
+}
+
+/* ২. লাইট শাইনিং (আলোর ঝলকানি) অ্যানিমেশন */
+@keyframes lightShine {
+  0% {
+    left: -60%;
+  }
+  30% {
+    left: 140%; /* দ্রুত বাম থেকে ডানে যাবে */
+  }
+  100% {
+    left: 140%; /* বাকি সময়টা একটু পজ নিয়ে আবার শুরু হবে */
+  }
+}
   /* Sophisticated Background Glows */
   .bg-glows {
     position: fixed;
