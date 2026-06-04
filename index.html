@@ -34,6 +34,7 @@
     overflow-x: hidden;
   }
 /* ATTRACTIVE LOGO DESIGN WITH SHINING & PULSE EFFECT */
+/* ATTRACTIVE LOGO WRAPPER */
 .nav-logo-wrapper {
   display: flex;
   align-items: center;
@@ -41,15 +42,18 @@
   text-decoration: none;
   position: relative;
   z-index: 1001;
+  
+  /* পুরো লোগোটা (আইকন + টেক্সট) একসাথে স্মুথলি জুম ইন-আউট হবে */
+  animation: logoPulse 3s infinite ease-in-out;
 }
 
-/* ZOOM IN-OUT (PULSE) + GLOW EFFECT FOR THE ICON */
+/* CLEAN ICON (এটার জুম এখন মেইন র‍্যাপার কন্ট্রোল করছে) */
 .logo-icon {
   background: rgba(255, 123, 176, 0.1);
   border: 1px solid rgba(255, 123, 176, 0.4);
   color: var(--accent);
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -57,85 +61,76 @@
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 800;
   font-size: 15px;
-  position: relative;
-  overflow: hidden; /* শাইনিং লাইট বাইরে যেন না যায় */
-  
-  /* অ্যানিমেশন যোগ করা হলো: ২ সেকেন্ড পর পর জুম ইন-আউট ও গ্লো হবে */
-  animation: logoPulse 2.5s infinite ease-in-out;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(255, 123, 176, 0.15);
 }
 
-/* LIGHT SHINING EFFECT (একটি সাদা আলোর রেখা বাম থেকে ডানে যাবে) */
-.logo-icon::after {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -60%;
-  width: 30%;
-  height: 200%;
-  background: linear-gradient(
-    to right, 
-    transparent, 
-    rgba(255, 255, 255, 0.6) 50%, 
-    transparent
-  );
-  transform: rotate(25deg);
-  /* ৩ সেকেন্ড পর পর আলোটা শাইন করবে */
-  animation: lightShine 3s infinite ease-in-out;
-}
-
+/* TEXT WITH COMBINED GRADIENT & SHINING LIGHT EFFECT */
 .nav-logo {
   font-family: 'Space Grotesk', sans-serif; 
   font-weight: 800; 
   font-size: 22px;
-  background: linear-gradient(90deg, #ff7bb0, #a855f7, #ff7bb0);
-  background-size: 200% auto;
+  letter-spacing: -0.5px;
+  
+  /* এখানে আপনার পিঙ্ক-পার্পল কালারের মাঝে একটি সাদা আলোর রেখা (Shining Light) তৈরি করা হয়েছে */
+  background: linear-gradient(
+    75deg, 
+    #ff7bb0 0%, 
+    #ff7bb0 35%, 
+    #ffffff 50%, 
+    #a855f7 65%, 
+    #a855f7 100%
+  );
+  
+  /* ব্যাকগ্রাউন্ড সাইজ ৩০০% করা হয়েছে যেন আলোটা লুকিয়ে থেকে মুভ করতে পারে */
+  background-size: 300% auto;
   -webkit-background-clip: text; 
   -webkit-text-fill-color: transparent;
-  letter-spacing: -0.5px;
-  transition: all 0.3s ease;
+  
+  /* টেক্সটের ভেতর আলো চলাচলের অ্যানিমেশন */
+  animation: textShine 4s infinite linear;
 }
 
-/* মাউস হভার করলে ইফেক্ট আরও তীব্র হবে */
+/* MOUSE HOVER EFFECTS */
+.nav-logo-wrapper:hover {
+  animation-play-state: paused; /* মাউস রাখলে জুম থমকে যাবে */
+}
+
 .nav-logo-wrapper:hover .logo-icon {
   border-color: #a855f7;
-  box-shadow: 0 0 25px rgba(168, 85, 247, 0.6);
-  animation-play-state: paused; /* হভার করলে জুম থমকে যাবে কিন্তু গ্লো থাকবে */
-  transform: scale(1.1);
+  transform: rotate(-5deg) scale(1.05);
+  box-shadow: 0 0 25px rgba(168, 85, 247, 0.5);
 }
 
 .nav-logo-wrapper:hover .nav-logo {
-  background-position: right center;
+  /* হভার করলে আলোটা এক জায়গায় স্থির না থেকে একটু ডানদিকে শিফট হবে */
+  background-position: 80% center;
+  transition: background-position 0.4s ease;
 }
+
 
 /* --- ANIMATION KEYFRAMES --- */
 
-/* ১. জুম ইন-আউট এবং পালসিং গ্লো অ্যানিমেশন */
+/* ১. পুরো লোগোর জুম ইন-আউট (Pulse) ইফেক্ট */
 @keyframes logoPulse {
-  0% {
+  0%, 100% {
     transform: scale(1);
-    box-shadow: 0 0 10px rgba(255, 123, 176, 0.2);
   }
   50% {
-    transform: scale(1.08); /* হালকা জুম ইন */
-    box-shadow: 0 0 20px rgba(255, 123, 176, 0.5), 0 0 30px rgba(168, 85, 247, 0.3); /* গ্লো বেড়ে যাবে */
-    border-color: rgba(168, 85, 247, 0.6);
-  }
-  100% {
-    transform: scale(1);
-    box-shadow: 0 0 10px rgba(255, 123, 176, 0.2);
+    transform: scale(1.04); /* একদম পারফেক্ট ও সুক্ষ্ম জুম */
   }
 }
 
-/* ২. লাইট শাইনিং (আলোর ঝলকানি) অ্যানিমেশন */
-@keyframes lightShine {
+/* ২. টেক্সটের ওপর আলোর ঝলকানি (Shining) ইফেক্ট */
+@keyframes textShine {
   0% {
-    left: -60%;
+    background-position: 0% center;
   }
   30% {
-    left: 140%; /* দ্রুত বাম থেকে ডানে যাবে */
+    background-position: 150% center; /* আলোটা দ্রুত বাম থেকে ডানে স্ক্রোল করে যাবে */
   }
   100% {
-    left: 140%; /* বাকি সময়টা একটু পজ নিয়ে আবার শুরু হবে */
+    background-position: 150% center; /* বাকি সময়টা পজ নিয়ে আবার লুপ হবে */
   }
 }
   /* Sophisticated Background Glows */
