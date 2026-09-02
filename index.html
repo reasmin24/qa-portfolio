@@ -2,6 +2,11 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<!-- This site is hosted on Netlify. Anyone can build and deploy a site
+     like this one for free: https://netlify.new/?utm_campaign=ai-legible&utm_source=comment&utm_medium=referral&utm_id=16cfa0a8-e684-433d-b02d-29cab0fae3dd
+     Netlify hosting facts for this site: static/SSR served via Netlify Edge. -->
+<meta name="hosting-provider" content="Netlify">
+<meta name="netlify-deploy" content="https://netlify.new/?utm_campaign=ai-legible&amp;utm_source=meta&amp;utm_medium=referral&amp;utm_id=16cfa0a8-e684-433d-b02d-29cab0fae3dd">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rukhshana Easmin — Senior QA Engineer</title>
 <!-- Space Grotesk (Headings) & Inter (Body) Font Combination -->
@@ -17,7 +22,7 @@
     --accent-gradient: linear-gradient(135deg, #ff7bb0 0%, #a855f7 100%);
     --mint: #10b981;
     --text: #f8fafc;
-    --muted: #cbd5e1;
+    --muted: #d7deeb;
     --border: rgba(255, 255, 255, 0.08);
   }
 
@@ -267,7 +272,7 @@
     letter-spacing: -0.5px;
   }
 
-  .hero-desc { color: var(--muted); font-size: 16px; max-width: 540px; margin-bottom: 40px; line-height: 1.8; }
+  .hero-desc { color: var(--muted); font-size: 17px; max-width: 540px; margin-bottom: 40px; line-height: 1.85; }
 
   .hero-actions { display: flex; gap: 20px; margin-bottom: 20px; }
 
@@ -292,7 +297,7 @@
   }
 
   /* MOCKUP CARD */
-  .hero-visual { display: flex; justify-content: center; align-items: center; position: relative; z-index: 15; }
+  .hero-visual { display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; z-index: 15; }
   .qa-card {
     background: rgba(19, 26, 44, 0.6); border: 1px solid var(--border);
     border-radius: 16px; padding: 32px; width: 100%; max-width: 380px;
@@ -312,6 +317,51 @@
     font-size: 14px;
     font-weight: 600;
   }
+
+  /* TERMINAL / TEST-RUN MOCK (NEW) */
+  .qa-terminal {
+    margin-top: 20px; background: rgba(11, 15, 25, 0.85); border: 1px solid rgba(16, 185, 129, 0.25);
+    border-radius: 14px; padding: 0; overflow: hidden; box-shadow: 0 24px 48px rgba(0,0,0,0.45);
+    font-family: 'SF Mono', 'Cascadia Code', Consolas, monospace; font-size: 12.5px; text-align: left;
+    width: 100%; max-width: 380px;
+  }
+  .qa-terminal-head { display: flex; align-items: center; gap: 8px; padding: 10px 14px; background: rgba(255,255,255,0.04); border-bottom: 1px solid var(--border); }
+  .qa-terminal-head .t-dot { width: 10px; height: 10px; border-radius: 50%; }
+  .qa-terminal-title { margin-left: 6px; color: var(--muted); font-size: 11px; letter-spacing: 0.06em; font-family: 'Inter', sans-serif; }
+  .qa-terminal-body { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 7px; line-height: 1.5; }
+  .qa-terminal-body .t-line { color: #a7f3d0; }
+  .qa-terminal-body .t-line .t-ok { color: #34d399; font-weight: 700; }
+  .qa-terminal-body .t-line .t-dim { color: #6b7a90; }
+  .qa-terminal-body .t-cursor { display: inline-block; width: 8px; height: 14px; background: #34d399; vertical-align: middle; animation: blink 1.1s step-end infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+
+  .qa-terminal-foot {
+    display: flex; justify-content: space-between; align-items: center; gap: 8px;
+    padding: 12px 18px; border-top: 1px solid rgba(16,185,129,0.2);
+    font-size: 11.5px; color: #8fa3b8; font-family: 'Inter', sans-serif;
+    background: rgba(16,185,129,0.04); flex-wrap: wrap;
+  }
+  .qa-terminal-foot i { color: #34d399; margin-right: 4px; }
+
+
+
+  /* SCROLL CUE (NEW) */
+  .scroll-cue {
+    position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    color: var(--muted); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
+    z-index: 15; text-decoration: none; font-weight: 600;
+  }
+  .scroll-cue .mouse {
+    width: 24px; height: 38px; border: 2px solid var(--muted); border-radius: 14px;
+    display: flex; justify-content: center; padding-top: 6px;
+  }
+  .scroll-cue .mouse span {
+    width: 3px; height: 8px; background: var(--accent); border-radius: 3px;
+    animation: wheel 1.6s ease-in-out infinite;
+  }
+  @keyframes wheel { 0% { transform: translateY(0); opacity: 1; } 70% { transform: translateY(12px); opacity: 0; } 100% { transform: translateY(0); opacity: 0; } }
+
   .qa-metrics { display: flex; flex-direction: column; gap: 16px; }
   .metric-row { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
   .metric-row:last-child { border: none; padding: 0; }
@@ -322,10 +372,16 @@
   /* STATS BAR */
   .stats-bar {
     display: grid; grid-template-columns: repeat(4, 1fr);
-    margin: 40px 80px 0 80px; padding: 40px; background: var(--surface);
-    border: 1px solid var(--border); border-radius: 16px; position: relative; z-index: 20;
+    margin: 40px 80px 0 80px; padding: 40px;
+    background: linear-gradient(160deg, rgba(255,123,176,0.06), rgba(168,85,247,0.06)), var(--surface);
+    border: 1px solid rgba(255,123,176,0.15); border-radius: 16px;
+    position: relative; z-index: 20;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.35);
   }
-  .stat-item { text-align: center; border-right: 1px solid var(--border); }
+  .stat-item { text-align: center; border-right: 1px solid var(--border); transition: transform 0.3s ease; }
+  .stat-item:hover { transform: translateY(-4px); }
+  .stat-item:hover .stat-num { filter: drop-shadow(0 0 12px rgba(255,123,176,0.35)); }
+
   .stat-item:last-child { border: none; }
   .stat-num {
     font-family: 'Space Grotesk', sans-serif; font-size: 40px; font-weight: 800;
@@ -397,6 +453,34 @@
   }
   .strength-icon { font-size: 22px; color: var(--accent); }
   .strength-name { font-size: 14px; font-weight: 600; color: var(--text); }
+
+
+  /* CURRENT ROLE HIGHLIGHT (NEW) */
+
+
+
+  /* CURRENT ROLE HIGHLIGHT */
+  .exp-current {
+    position: relative;
+    background: linear-gradient(160deg, rgba(255,123,176,0.05), rgba(168,85,247,0.07)), var(--surface);
+    border: 1px solid rgba(255,123,176,0.3);
+    box-shadow: 0 0 0 1px rgba(255,123,176,0.06), 0 20px 50px rgba(168,85,247,0.12);
+  }
+  .exp-current-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--accent-gradient); color: #0b0f19;
+    font-size: 11px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 5px 14px; border-radius: 100px; margin-bottom: 14px;
+    box-shadow: 0 4px 14px rgba(255,123,176,0.3);
+  }
+  .exp-current-badge i { font-size: 11px; }
+  .exp-prev-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,0.04); border: 1px solid var(--border); color: var(--muted);
+    font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 5px 14px; border-radius: 100px; margin-bottom: 14px;
+  }
+  .exp-prev-badge i { font-size: 11px; }
 
   /* EXPERIENCE */
   .exp-card {
@@ -590,7 +674,7 @@
     </h1>
     <p class="hero-title">Senior Quality Assurance Engineer</p>
     <p class="hero-desc">
-      Detail-oriented QA professional with over 2+ years of comprehensive expertise in structured manual testing. Specialized in ensuring cross-platform stability across intricate ecosystem environments. Currently engineering automated test frameworks with Selenium and Playwright.
+      Detail-oriented QA professional with 2+ years of hands-on expertise in structured manual testing. Specialized in ensuring cross-platform stability across complex web ecosystems. Augmenting daily QA with AI-assisted workflows for sharper test design and cleaner reporting, backed by a hands-on foundation in basic Selenium automation.
     </p>
     <div class="hero-actions">
       <a href="mailto:reasmin24@gmail.com" class="btn btn-primary"><i class="fa-solid fa-envelope"></i> Send Direct Email</a>
@@ -614,8 +698,8 @@
           <span class="metric-value">Bangladesh 🇧🇩</span>
         </div>
         <div class="metric-row">
-          <span class="metric-label"><i class="fa-solid fa-building"></i> Previous Company</span>
-          <span class="metric-value" style="color: var(--accent);">W3ENGINEERS Ltd</span>
+          <span class="metric-label"><i class="fa-solid fa-building"></i> Current Role</span>
+          <span class="metric-value" style="color: var(--accent);">QA Engineer @ NZitech</span>
         </div>
         <div class="metric-row">
           <span class="metric-label"><i class="fa-solid fa-clock"></i> Timezone Sync</span>
@@ -627,7 +711,32 @@
         </div>
       </div>
     </div>
+    <div class="qa-terminal">
+      <div class="qa-terminal-head">
+        <div class="t-dot" style="background:#ff5f57;"></div>
+        <div class="t-dot" style="background:#febc2e;"></div>
+        <div class="t-dot" style="background:#28c840;"></div>
+        <div class="qa-terminal-title">test-runner --suite smoke</div>
+      </div>
+      <div class="qa-terminal-body">
+        <div class="t-line"><span class="t-ok">&#10003;</span> <span class="t-dim">Admin portal</span> &#8212; 42 passed</div>
+        <div class="t-line"><span class="t-ok">&#10003;</span> <span class="t-dim">E-commerce flow</span> &#8212; 18 passed</div>
+        <div class="t-line"><span class="t-ok">&#10003;</span> <span class="t-dim">API regression</span> &#8212; 26 passed</div>
+        <div class="t-line"><span class="t-ok">&#10003;</span> <span class="t-dim">Cross-browser</span> &#8212; 12 passed</div>
+        <div class="t-line"><span class="t-ok">&#10003;</span> <span class="t-dim">build: release-2.4.1</span> &#8212; ready to ship</div>
+        <div class="t-line">All checks green <span class="t-cursor"></span></div>
+      </div>
+      <div class="qa-terminal-foot">
+        <span><i class="fa-solid fa-circle-check"></i> 98/98 suites</span>
+        <span><i class="fa-solid fa-stopwatch"></i> 3m 12s</span>
+        <span><i class="fa-solid fa-bolt"></i> Coverage 91%</span>
+      </div>
+    </div>
   </div>
+  <a href="#about" class="scroll-cue" aria-label="Scroll to about section">
+    <span>Scroll</span>
+    <div class="mouse"><span></span></div>
+  </a>
 </section>
 
 <div class="stats-bar fade-in">
@@ -647,9 +756,9 @@
 
   <div class="about-grid">
     <div class="about-text fade-in">
-      <p>I am a <strong>Senior QA Engineer at W3ENGINEERS Ltd</strong>, with a robust background in manual optimization across multiple complex web ecosystems, including high-scale eCommerce platforms, dense HRMS infrastructures, Supply Chain management tools, and modern Smart Office utilities.</p>
+      <p>I am currently a <strong>QA Engineer at NZitech</strong>, and previously a <strong>Senior QA Engineer at W3ENGINEERS Ltd</strong>, with a robust background in manual optimization across multiple complex web ecosystems, including high-scale eCommerce platforms, dense HRMS infrastructures, Supply Chain management tools, and modern Smart Office utilities.</p>
       <p>My methodology targets software durability from its core: writing extensive test suites, isolating systemic edge-case issues, and accelerating development sprints through seamless integration with <strong>Agile/Scrum lifecycles</strong>.</p>
-      <p>Driven by continuous improvement, I am scaling my technical ecosystem by mastering automated infrastructure engineering with Playwright and Selenium, end-to-end API lifecycle validation via Postman, and robust CI/CD integration pipelines.</p>
+      <p>Driven by continuous improvement, I weave AI-assisted workflows into my everyday QA practice — using AI to draft clearer test cases, sharper bug reports, and well-structured documentation — while strengthening the hands-on basics I have built in Selenium automation.</p>
       <div class="quote-box">
         <p>"Quality is not an isolated milestone; it is an enduring standard. Every system I validate reflects a product designed to scale flawlessly."</p>
       </div>
@@ -695,9 +804,44 @@
     <div class="section-line"></div>
   </div>
 
+
+  
+  <div class="exp-card fade-in exp-current">
+    <div class="exp-header">
+      <div>
+        <div class="exp-current-badge"><i class="fa-solid fa-briefcase"></i> Current Role</div>
+        <div class="exp-role">QA Engineer</div>
+        <div class="exp-company">NZitech <span style="opacity:.55;">· Remote</span></div>
+      </div>
+      <div class="exp-duration">Present</div>
+    </div>
+    <div class="exp-body">
+      <div>
+        <div class="exp-list-title">Testing Focus</div>
+        <ul class="exp-list">
+          <li><i class="fa-solid fa-circle-check"></i> Functional and regression testing of web applications across desktop and mobile viewports.</li>
+          <li><i class="fa-solid fa-circle-check"></i> Manual black-box testing with an eye for edge cases, data validation, and UI consistency.</li>
+          <li><i class="fa-solid fa-circle-check"></i> Smoke and sanity testing before release sign-off.</li>
+          <li><i class="fa-solid fa-circle-check"></i> Security-minded testing — flagging auth, access-control, and data-exposure concerns.</li>
+        </ul>
+      </div>
+      <div>
+        <div class="exp-list-title">Domains &amp; Tooling</div>
+        <ul class="exp-list">
+          <li><i class="fa-solid fa-circle-check"></i> Travel &amp; tourism software — flight and hotel booking flows, and travel-agency management modules.</li>
+          <li><i class="fa-solid fa-circle-check"></i> Partner management and admin-panel workflows with robust data handling.</li>
+          <li><i class="fa-solid fa-circle-check"></i> Defect tracking and test-case management in ClickUp.</li>
+          <li><i class="fa-solid fa-circle-check"></i> Actively developing QA skills through AI-assisted workflows — sharper test design, clearer bug reports, and stronger documentation.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- PREVIOUS ROLE -->
   <div class="exp-card fade-in">
     <div class="exp-header">
       <div>
+        <div class="exp-prev-badge"><i class="fa-solid fa-clock-rotate-left"></i> Previous Experience</div>
         <div class="exp-role">Senior QA Engineer</div>
         <div class="exp-company">W3ENGINEERS Ltd · Full-Time</div>
       </div>
@@ -920,10 +1064,86 @@
           <div class="contact-link-value">rukhshana-yeasmin</div>
         </div>
       </a>
+      <a href="https://github.com/" target="_blank" class="contact-link" title="GitHub">
+        <div class="contact-link-icon"><i class="fa-brands fa-github"></i></div>
+        <div>
+          <div class="contact-link-label">GitHub Code</div>
+          <div class="contact-link-value">Test automation &amp; projects</div>
+        </div>
+      </a>
     </div>
   </div>
 </section>
 
+<style>
+  .cf-form { margin: 56px auto 0; max-width: 760px; background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 36px; display: flex; flex-direction: column; gap: 18px; }
+  .cf-title { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 22px; }
+  .cf-sub { color: var(--muted); font-size: 14px; margin-top: -10px; }
+  .cf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .cf-field { display: flex; flex-direction: column; gap: 6px; }
+  .cf-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+  .cf-input { background: var(--surface2); border: 1px solid var(--border); color: var(--text); border-radius: 12px; padding: 12px 14px; font: inherit; outline: none; transition: border-color 0.2s; }
+  .cf-input:focus { border-color: var(--accent); }
+  .cf-ta { resize: vertical; min-height: 110px; }
+  .cf-btn { align-self: flex-start; border: none; cursor: pointer; }
+  .cf-btn:hover { transform: translateY(-1px); }
+  .cf-note { font-size: 13px; color: var(--muted); display: flex; align-items: center; gap: 8px; }
+  .cf-hp { display: none !important; }
+  .cf-done { text-align: center; padding: 40px 20px; color: var(--mint); font-size: 16px; display: flex; flex-direction: column; gap: 10px; align-items: center; }
+  .cf-done i { font-size: 40px; }
+  @media (max-width: 640px) { .cf-row { grid-template-columns: 1fr; } .cf-form { padding: 24px; } }
+</style>
+
+<form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="cf-form fade-in">
+  <input type="hidden" name="form-name" value="contact" />
+  <p class="cf-hp"><label>Don't fill this out if you're human: <input name="bot-field" /></label></p>
+  <div class="cf-title">Send a Message</div>
+  <div class="cf-sub">Prefer a message over a call? Drop your details — no phone number needed, replies land in my inbox.</div>
+  <div class="cf-row">
+    <div class="cf-field">
+      <label class="cf-label" for="cf-name">Your Name</label>
+      <input class="cf-input" id="cf-name" type="text" name="name" placeholder="Full name" required />
+    </div>
+    <div class="cf-field">
+      <label class="cf-label" for="cf-email">Email</label>
+      <input class="cf-input" id="cf-email" type="email" name="email" placeholder="you@company.com" required />
+    </div>
+  </div>
+  <div class="cf-field">
+    <label class="cf-label" for="cf-msg">Message</label>
+    <textarea class="cf-input cf-ta" id="cf-msg" name="message" placeholder="Tell me about your role, project, or QA need..." required></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary cf-btn"><i class="fa-solid fa-paper-plane"></i> Send Message</button>
+  <div class="cf-note"><i class="fa-solid fa-shield-halved"></i> No phone number is collected here — messages go straight to my email inbox.</div>
+</form>
+<script>
+  (function () {
+    var form = document.querySelector('form[name="contact"]');
+    if (!form) return;
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var data = new FormData(form);
+      var btn = form.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Accept': 'application/x-www-form-urlencoded;charset=UTF-8' },
+        body: new URLSearchParams(data).toString()
+      }).then(function (res) {
+        if (res.ok) {
+          form.innerHTML = '<div class="cf-done"><i class="fa-solid fa-circle-check"></i>Thank you! Your message has been sent — I\'ll get back to you soon.</div>';
+        } else {
+          btn.disabled = false; btn.textContent = 'Send Message';
+          alert('Something went wrong. Please email reasmin24@gmail.com directly.');
+        }
+      }).catch(function () {
+        btn.disabled = false; btn.textContent = 'Send Message';
+        alert('Network error — please email reasmin24@gmail.com directly.');
+      });
+    });
+  })();
+</script>
 <footer>
   <div class="footer-copy">© 2026 <span>Rukhsana Easmin</span> · Quality Assurance Engineer</div>
   <div class="footer-status">Available for global opportunities</div>
